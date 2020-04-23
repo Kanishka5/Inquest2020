@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Contact Us</title>
+  {% load static %}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="{% static "img/Aarohan-Tab-Logo" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "vendor/bootstrap/css/bootstrap.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "fonts/font-awesome-4.7.0/css/font-awesome.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "fonts/iconic/css/material-design-iconic-font.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "vendor/animate/animate.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "vendor/css-hamburgers/hamburgers.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "vendor/animsition/css/animsition.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "vendor/select2/select2.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "vendor/daterangepicker/daterangepicker.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "css/util.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "css/bg2.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "css/contact.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "css/nav.css" %}" />
+</head>
+
+<body>
+  <canvas id="stars" width="300" height="300"></canvas>
+  <!-- navbar -->
+  <nav class="nav">
+    <div class="container" id="nav-cont">
+      <div class="logo">
+        <a href="../">
+          <img src="{% static "img/arhn_header.png" %}" style="width:130px" />
+        </a>
+      </div>
+      <div id="mainListDiv" class="main_list">
+        <ul class="navlinks">
+          <li><a href="../">Home</a></li>
+          <li><a href="{% url 'leaderboard' %}">Leaderboard</a></li>
+          <li><a href="{% url 'contact' %}">Contact Us</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+          <li><a href="../"> Hi {{ user.name }} !</a></li>
+          {% else %}
+          <li><a href="{% url 'signin' %}">Login</a></li>
+          <li><a href="{% url 'signup' %}">Sign Up</a></li>
+          {% endif %}
+        </ul>
+      </div>
+      <span class="navTrigger">
+        <i></i>
+        <i></i>
+        <i></i>
+      </span>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="group">
+      <div class="row" style="padding-top: 20vh;">
+        <div class="name col-xs-12 col-sm-3 offset-sm-0">
+          <div class="content">
+            <img src="{% static "img/kanishka.png" %}" style="width: 320px; height: auto;" />
+            <h3 style="padding: 20px;">Kanishka Narjary</h3>
+            <p>
+              <a href="https://www.facebook.com/kanishka.narjary" target="_blank"><i class="fa fa-facebook"
+                  style="font-size: 16px;padding: 0 10px;" aria-hidden="true"></i></a>
+              Call&ensp;<a href="tel:7086645895">(+91)-70866 45895</a>
+            </p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-3 offset-sm-1 name">
+          <div class="content">
+            <img src="{% static "img/bosok.png" %}" style="width: 320px; height: auto;" />
+            <h3 style="padding: 20px;">Swarnendu Basak</h3>
+            <p>
+              <a href="https://www.facebook.com/swarnendu.basak.3" target="_blank"><i class="fa fa-facebook"
+                  style="font-size: 16px;padding: 0 10px;" aria-hidden="true"></i></a>
+              Call&ensp;<a href="tel:7890373505">(+91)-78903 73505</a>
+            </p>
+          </div>
+        </div>
+        <div class="name col-xs-12 col-sm-3  offset-sm-1">
+          <img src="{% static "img/sommu.png" %}" style="width: 320px; height: auto;" />
+          <div class="content">
+            <h3 style="padding: 20px;">Soumya Ranjan</h3>
+            <p>
+              <a href="https://www.facebook.com/theignorantzen" target="_blank"><i class="fa fa-facebook" style="font-size: 16px;padding: 0 10px;" aria-hidden="true"></i></a>
+              Call&ensp;<a href="tel:9775139839">(+91)-97751 39839</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="https://rawgit.com/ironwallaby/delaunay/master/delaunay.js"></script>
+  <script type="text/javascript" src="{% static "js/bg2.js" %}"></script>
+  <script src="{% static "vendor/jquery/jquery-3.2.1.min.js" %}"></script>
+  <script src="{% static "vendor/animsition/js/animsition.min.js" %}"></script>
+  <script src="{% static "vendor/bootstrap/js/bootstrap.min.js" %}"></script>
+  <script src="{% static "vendor/select2/select2.min.js" %}"></script>
+  <script src="{% static "vendor/daterangepicker/moment.min.js" %}"></script>
+  <script src="{% static "vendor/daterangepicker/daterangepicker.js" %}"></script>
+  <script src="{% static "vendor/countdowntime/countdowntime.js" %}"></script>
+  <script src="{% static "js/nav.js" %}"></script>
+  <script src="{% static "js/main.js" %}""></script>
+  </body>
+</html>

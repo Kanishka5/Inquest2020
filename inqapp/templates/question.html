@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156694461-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-156694461-1');
+  </script>
+  <title>Inquest 2020</title>
+  {% load static %}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="{% static "img/Aarohan-Tab-Logo" %}" />
+  <title>Inquest</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="{% static "vendor/bootstrap/css/bootstrap.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "fonts/font-awesome-4.7.0/css/font-awesome.min.css" %}/>
+  <link rel=" stylesheet" type="text/css" href="{% static "fonts/iconic/css/material-design-iconic-font.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "vendor/animate/animate.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "vendor/animate/animate.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "vendor/css-hamburgers/hamburgers.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "vendor/animsition/css/animsition.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "vendor/select2/select2.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "vendor/daterangepicker/daterangepicker.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "css/util.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "css/bg2.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "css/contact.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "css/nav.css" %}" />
+</head>
+
+<body>
+  <canvas id="stars" width="300" height="300"></canvas>
+  <!-- navbar -->
+  <nav class="nav">
+    <div class="container" id="nav-cont">
+      <div class="logo">
+        <a href="../">
+          <img src="{% static "img/arhn_header.png" %}" style="width:130px" />
+        </a>
+      </div>
+      <div id="mainListDiv" class="main_list">
+        <ul class="navlinks">
+          <li><a href="../">Home</a></li>
+          <li><a href="{% url 'leaderboard' %}">Leaderboard</a></li>
+          <li><a href="{% url 'contact' %}">Contact Us</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+          <li><a href="../"> Hi {{ user.name }} !</a></li>
+          {% else %}
+          <li><a href="{% url 'signin' %}">Login</a></li>
+          <li><a href="{% url 'signup' %}">Sign Up</a></li>
+          {% endif %}
+        </ul>
+      </div>
+      <span class="navTrigger">
+        <i></i>
+        <i></i>
+        <i></i>
+      </span>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row" style="padding-top: 15vh;">
+      <div id="lvl" class="plate info col-xs-6 col-sm-2 col-sm-offset-1">
+        <div class="content">
+          <h3>Level</h3>
+          <p style="    font-size: 1.5rem;
+            color: green;">{{level}}</p>
+        </div>
+      </div>
+      <div id="rank" class="plate info col-xs-6 col-sm-2 order-3">
+        <div id="score" class="content">
+          <h3>Score</h3>
+          <p style="    font-size: 1.5rem;
+            color: green;">{{n}}</p>
+        </div>
+      </div>
+      <div id="question" class="plate col-xs-12 col-sm-8">
+        {% if question.question %}
+        <h1 style="margin-bottom: 3vh;
+          font-size: 1.5rem;
+          color: white;">Q:{{ question.question}}</h1>
+        {% endif %}
+        <img src="{{question.image.url}}" id="qimg" />
+        {% if flash == 'Try Harder' %}
+        <h3 style="    margin-top: 5vh;
+          color: red;">{{flash}}</h3>
+        {% endif %}
+        <div class="content">
+          {% if question.message %}
+          <h3 style="margin-top: 3vh; color: whitesmoke;">Text/Hint</h3>
+          <p style="font-size: 1.2rem;">{{question.message}}</p>
+          {% else %}
+          <h3 style="margin-top: 3vh; color: whitesmoke;">Text/Hint</h3>
+          <p style="font-size: 1.2rem;">Will be revealed soon!</p>
+          {% endif %}
+        </div>
+        <form method="POST" class="post-form">{% csrf_token %}
+          <input style="margin-top: 2vh;
+              border-radius: 8px;
+              min-height: 6vh;
+              padding-left: 1.5vw;
+              font-size: 1.2em;" name="answer" id="input-1" type="text" class="form-control" placeholder="answer"
+            required autofocus name="answer" />
+          <button type="submit" class="btn btn-success boton" style="margin-top:3vh">
+            <h3 style="margin:0;font-size: 1.5em;">Submit</h3>
+          </button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="https://rawgit.com/ironwallaby/delaunay/master/delaunay.js"></script>
+  <script type="text/javascript" src="{% static "js/bg2.js" %}"></script>
+  <script src="{% static "vendor/jquery/jquery-3.2.1.min.js" %}"></script>
+  <script src="{% static "vendor/animsition/js/animsition.min.js" %}"></script>
+  <script src="{% static "vendor/bootstrap/js/bootstrap.min.js" %}"></script>
+  <script src="{% static "vendor/select2/select2.min.js" %}"></script>
+  <script src="{% static "vendor/daterangepicker/moment.min.js" %}"></script>
+  <script src="{% static "vendor/daterangepicker/daterangepicker.js" %}"></script>
+  <script src="{% static "vendor/countdowntime/countdowntime.js" %}"></script>
+  <script src="{% static "js/main.js" %}"></script>
+  <script src="{% static "js/nav.js" %}"></script>
+</body>
+
+</html>

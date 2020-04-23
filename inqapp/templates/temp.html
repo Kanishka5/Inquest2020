@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Inquest</title>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Inquest is the online treasure hunt of the official techno-management fest of National
+    Institute of Technology, Durgapur organised by Centre for Cognitive Activities(CCA)" />
+
+    <meta name="keywords" content="aarohan, 2019, 2k19, nit, nitd, nitdgp, official techno-management fest,
+    fest, festival, science, engineering, techno-management, durgapur, National Institute of Technology, Durgapur,
+    Centre for Cognitive Activities(CCA), Aarohan is the official techno-management fest of National
+    Institute of Technology, Durgapur organised by Centre for Cognitive Activities(CCA), wdct, web, design, creative team,
+    coding, development, web development, research and development, e cell, entrepreneurship, R&D, robotics, robo cell,
+    robowars, hackathon, events, core cell, management, official, best fest of nitd, aarohan nites, 2nd largest, eastern 
+    India, 2nd largest fest in eastern India, gaming, electronics, computer science events, mechatronics" />
+
+    <meta name="author" content="Web, Design and Creative Team(WDCT), Center for Cognitive Activities(CCA),
+    National Institute of Technology, Durgapur(NIT Dgp)" />
+    <meta name="robots" content="index,follow" />
+	<link rel="canonical" href="https://arhn.co.in" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    {% load static %}
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static "vendor/bootstrap/css/bootstrap.min.css" %}"
+    />
+    <!--===============================================================================================-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static "fonts/font-awesome-4.7.0/css/font-awesome.min.css" %}"
+    />
+    <!--===============================================================================================-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static "fonts/iconic/css/material-design-iconic-font.min.css" %}"
+    />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static "vendor/animate/animate.css" %}"  />
+    <!--===============================================================================================-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static "vendor/css-hamburgers/hamburgers.min.css" %}"
+    />
+    <!--===============================================================================================-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static "vendor/animsition/css/animsition.min.css" %}"
+    />
+    <!--===============================================================================================-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="vendor/select2/select2.min.css"
+    />
+    <!--===============================================================================================-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="vendor/daterangepicker/daterangepicker.css"
+    />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/bg2.css" />
+    <link rel="stylesheet" type="text/css" href="css/landing.css" />
+    <link rel="stylesheet" type="text/css" href="css/nav.css" />
+  </head>
+  <body>
+    <canvas id="stars" width="300" height="300"></canvas>
+    <nav class="nav">
+      <div class="container">
+        <div class="logo">
+          <a href="#">Your Logo</a>
+        </div>
+        <div id="mainListDiv" class="main_list">
+          <ul class="navlinks">
+            <li><a href="./landing.html">Home</a></li>
+            <li><a href="#">Leaderboard</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="./Login.html">Login</a></li>
+          </ul>
+        </div>
+        <span class="navTrigger">
+          <i></i>
+          <i></i>
+          <i></i>
+        </span>
+      </div>
+    </nav>
+
+    <div class="container cont">
+      <div class="row infobar">
+        <div class="col info_el">
+          Inquest Logo
+        </div>
+        {% if started %}
+        <div class="col info_el timer">
+          <span class="game_start">Game Starts In</span>
+          <span class="timer_out">{{timeleft}}</span>
+        </div>
+        {% else %}
+        <div class="col info_el timer">
+            <span class="game_start">Game Started</span>
+            <span class="timer_out">{Play</span>
+          </div>
+        {% endif %}
+        <div class="col info_el">
+          Some other logo
+        </div>
+      </div>
+      <div class="row main_blocks">
+        <div class="row block_rw">
+          <div class="col block">
+            <span class="bl_header">
+              Inquest?
+            </span>
+            <br />
+            <span class="bl_text">
+                Inquest is an online treasure hunt hosted by WDCT,CCA. as a part of Aarohan 2019.
+            </span>
+          </div>
+          <div class="col block">
+            <span class="bl_header">
+              Rules
+            </span>
+            <br />
+            <span class="bl_text">
+                Revealing answers or questions on anysocial media will result in immediate disqualification. Contact Event Heads for queries.
+            </span>
+          </div>
+        </div>
+        <div class="row block_rw">
+          <div class="col block">
+            <span class="bl_header">
+              Instructions
+            </span>
+            <br />
+            <span class="bl_text">
+                You have unlimited attempts for every level. You won't be judged by the number of attempts you make.Googling is the key to success.
+            </span>
+          </div>
+          <div class="col block">
+            <span class="bl_header">
+              What if I win?
+            </span>
+            <br />
+            <span class="bl_text">
+                Exciting Prizes and Goodies for top three players.
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      type="text/javascript"
+      src="https://rawgit.com/ironwallaby/delaunay/master/delaunay.js"
+    ></script>
+    <script type="text/javascript" src="js/bg2.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/daterangepicker/moment.min.js"></script>
+    <script src="vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="js/main.js"></script>
+    <script src="js/nav.js"></script>
+  </body>
+</html>

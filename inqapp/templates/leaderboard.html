@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Leaderboard</title>
+  {% load static %}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="{% static "img/Aarohan-Tab-Logo" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "vendor/bootstrap/css/bootstrap.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "fonts/font-awesome-4.7.0/css/font-awesome.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "fonts/iconic/css/material-design-iconic-font.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "vendor/animate/animate.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "vendor/css-hamburgers/hamburgers.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "vendor/animsition/css/animsition.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "vendor/select2/select2.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "vendor/daterangepicker/daterangepicker.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "css/util.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "css/bg2.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "css/nav.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "css/leader.css" %}" />
+</head>
+
+<body>
+  <canvas id="stars" width="300" height="300"></canvas>
+  <!-- navbar -->
+  <nav class="nav">
+    <div class="container" id="nav-cont">
+      <div class="logo">
+        <a href="../">
+          <img src="{% static "img/arhn_header.png" %}" style="width:130px" />
+        </a>
+      </div>
+      <div id="mainListDiv" class="main_list">
+        <ul class="navlinks">
+          <li><a href="../">Home</a></li>
+          <li><a href="{% url 'leaderboard' %}">Leaderboard</a></li>
+          <li><a href="{% url 'contact' %}">Contact Us</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+          <li><a href="../"> Hi {{ user.name }} !</a></li>
+          {% else %}
+          <li><a href="{% url 'signin' %}">Login</a></li>
+          <li><a href="{% url 'signup' %}">Sign Up</a></li>
+          {% endif %}
+        </ul>
+      </div>
+      <span class="navTrigger">
+        <i></i>
+        <i></i>
+        <i></i>
+      </span>
+    </div>
+  </nav>
+
+  <div class="table">
+    <div class="table-cell">
+      <ul class="leader">
+        <div id="decoration"></div>
+        <div id="decoration2"></div>
+        <div id="decoration3"></div>
+        <div class="container" style="z-index: 0;">
+          <div class="row heading">
+            <h2>
+              Leaderboard
+            </h2>
+          </div>
+        </div>
+
+
+        {% for participant in participants %}
+        <li style="display: flex;
+        justify-content: space-between;
+        align-items: center;">
+          <span class="list_num">#{{ forloop.counter }}</span>
+
+          <h3 style="text-align: left; font-size: 1.2rem;">{{ participant.name }}</h3>
+          <h3 style="font-size: 1.2rem;">{{ participant.college }}</h3>
+          <h3 class="number" style="padding-right:2rem; font-size: 1.2rem;">{{ participant.score }}</h3>
+
+        </li>
+
+        {% endfor %}}
+
+
+      </ul>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="https://rawgit.com/ironwallaby/delaunay/master/delaunay.js"></script>
+  <script type="text/javascript" src="{% static "js/bg2.js" %}"></script>
+  <script src="{% static "vendor/jquery/jquery-3.2.1.min.js" %}"></script>
+  <script src="{% static "vendor/animsition/js/animsition.min.js" %}"></script>
+  <script src="{% static "vendor/bootstrap/js/bootstrap.min.js" %}"></script>
+  <script src="{% static "vendor/select2/select2.min.js" %}"></script>
+  <script src="{% static "vendor/daterangepicker/moment.min.js" %}"></script>
+  <script src="{% static "vendor/daterangepicker/daterangepicker.js" %}"></script>
+  <script src="{% static "vendor/countdowntime/countdowntime.js" %}"></script>
+  <script src="{% static "js/main.js" %}"></script>
+  <script src="{% static "js/nav.js" %}"></script>
+</body>
+
+</html>

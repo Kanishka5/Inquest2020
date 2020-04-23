@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Inquest 2020</title>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Inquest is the online treasure hunt of the official techno-management fest of National
+    Institute of Technology, Durgapur organised by Centre for Cognitive Activities(CCA)" />
+
+  <meta name="keywords" content="aarohan, 2020, 2k20, nit, nitd, nitdgp, official techno-management fest,
+    fest, festival, science, engineering, techno-management, durgapur, National Institute of Technology, Durgapur,
+    Centre for Cognitive Activities(CCA), Aarohan is the official techno-management fest of National
+    Institute of Technology, Durgapur organised by Centre for Cognitive Activities(CCA), wdct, web, design, creative team,
+    coding, development, web development, research and development, e cell, entrepreneurship, R&D, robotics, robo cell,
+    robowars, hackathon, events, core cell, management, official, best fest of nitd, aarohan nites, 2nd largest, eastern 
+    India, 2nd largest fest in eastern India, gaming, electronics, computer science events, mechatronics" />
+
+  <meta name="author" content="Web, Design and Creative Team(WDCT), Center for Cognitive Activities(CCA),
+    National Institute of Technology, Durgapur(NIT Dgp)" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://arhn.co.in" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  var OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "5cc55361-23b3-42f3-a60f-d0f0729342ed",
+    });
+  });
+</script>
+
+  {% load static %}
+  <link rel="icon" type="image/png" href="{% static "img/Aarohan-Tab-Logo" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "vendor/bootstrap/css/bootstrap.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "fonts/font-awesome-4.7.0/css/font-awesome.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "fonts/iconic/css/material-design-iconic-font.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "vendor/animate/animate.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "vendor/css-hamburgers/hamburgers.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "vendor/animsition/css/animsition.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "vendor/select2/select2.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "vendor/daterangepicker/daterangepicker.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "css/util.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "css/bg2.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "css/landing.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "css/nav.css" %}" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <canvas id="stars" width="300" height="300"></canvas>
+  <!-- registered alert -->
+  {% if message == 'Logged In !' %}
+  <div id="msg" class="alert alert-warning alert-dismissible fade show" role="alert">
+    You are registered!
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endif %}
+
+  <!-- navbar -->
+  <nav class="nav">
+    <div class="container" id="nav-cont">
+      <div class="logo">
+        <a href="../">
+          <img src="{% static "img/arhn_header.png" %}" style="width:130px" />
+        </a>
+      </div>
+      <div id="mainListDiv" class="main_list">
+        <ul class="navlinks">
+          <li><a href="../">Home</a></li>
+          <li><a href="{% url 'leaderboard' %}">Leaderboard</a></li>
+          <li><a href="{% url 'contact' %}">Contact Us</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+          <li><a href="../"> Hi {{ user.name }} !</a></li>
+          {% else %}
+          <li><a href="{% url 'signin' %}">Login</a></li>
+          <li><a href="{% url 'signup' %}">Sign Up</a></li>
+          {% endif %}
+        </ul>
+      </div>
+      <span class="navTrigger">
+        <i></i>
+        <i></i>
+        <i></i>
+      </span>
+    </div>
+  </nav>
+
+  <div class="container cont">
+    <div class="inq-logo">
+      <img src="{% static "img/Inquest.png" %}" alt="inquest">
+    </div>
+    <div class="row infobar">
+      {% if started == False %}
+      <div class="col-lg-12 info_el timer">
+        <span class="game_start">Game Starts on</span>
+        <br />
+        <h1 class="timer_out"> {{starttime}} </h1>
+      </div>
+      {% else %}
+      <div class="col-lg-12 info_el timer">
+        <span class="game_start">{{message}}</span>
+      </div>
+      {% endif %}
+      <div style="width: 100%;text-align: center; padding-bottom: 5vh;">
+        <button class="btn btn-success boton"
+          style="padding:0.7rem 2rem;border:0;margin-top:3vh;min-width: 9vw;background: linear-gradient(90deg, rgb(111, 158, 65) 0%, rgb(73, 111, 23) 100%);">
+          <a href="{% url 'inquest' %}" style="    text-decoration: none;
+      color: white;">
+            <h3 style="margin:0;font-size: 1.5em;">PLAY</h3>
+          </a>
+
+        </button>
+      </div>
+
+    </div>
+    <div class="row main_blocks">
+      <div class="row block_rw">
+        <div class="col block">
+          <h1 class="bl_header">
+            Inquest?
+          </h1>
+
+          <p class="bl_text">
+            Inquest is an online treasure hunt as a part
+            of Aarohan 2020.
+          </p>
+        </div>
+        <div class="col block">
+          <h1 class="bl_header">
+            Rules
+          </h1>
+
+          <p class="bl_text">
+            Revealing answers or questions on any social media will result in
+            immediate disqualification. Contact Event Heads for queries.
+          </p>
+        </div>
+      </div>
+      <div class="row block_rw">
+        <div class="col block">
+          <h1 class="bl_header">
+            Instructions
+          </h1>
+
+          <p class="bl_text">
+            You have unlimited attempts for every level. You won't be judged
+            by the number of attempts you make. Googling is the key to success.
+          </p>
+        </div>
+        <div class="col block">
+          <h1 class="bl_header">
+            What if I win?
+          </h1>
+
+          <p class="bl_text">
+            Exciting Prizes and Goodies for top three players.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="https://rawgit.com/ironwallaby/delaunay/master/delaunay.js"></script>
+  <script type="text/javascript" src="{% static "js/bg2.js" %}"></script>
+
+  <script src="{% static "vendor/jquery/jquery-3.2.1.min.js" %}"></script>
+
+  <script src="{% static "vendor/animsition/js/animsition.min.js" %}"></script>
+
+  <script src="{% static "vendor/bootstrap/js/bootstrap.min.js" %}"></script>
+
+  <script src="{% static "vendor/select2/select2.min.js" %}"></script>
+
+  <script src="{% static "vendor/daterangepicker/moment.min.js" %}"></script>
+  <script src="{% static "vendor/daterangepicker/daterangepicker.js" %}"></script>
+
+  <script src="{% static "vendor/countdowntime/countdowntime.js" %}"></script>
+
+  <script src="{% static "js/main.js" %}"></script>
+  <script src="{% static "js/nav.js" %}"></script>
+</body>
+
+</html>

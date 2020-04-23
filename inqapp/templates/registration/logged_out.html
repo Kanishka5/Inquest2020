@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1.0">
+    <title>Inquest</title>
+    {% load static %}
+	<link rel="stylesheet" href="{% static "css/main.css" %}">
+	<link rel="stylesheet" href="{% static "css/style.css" %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{% static "css/background.css" %}">
+
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700" rel="stylesheet">
+	<link rel="stylesheet" href="{% static "css/navbar.css" %}">
+	<meta name="description" content="Inquest is the online treasure hunt of the official techno-management fest of National
+    Institute of Technology, Durgapur organised by Centre for Cognitive Activities(CCA)" />
+
+    <meta name="keywords" content="aarohan, 2019, 2k19, nit, nitd, nitdgp, official techno-management fest,
+    fest, festival, science, engineering, techno-management, durgapur, National Institute of Technology, Durgapur,
+    Centre for Cognitive Activities(CCA), Aarohan is the official techno-management fest of National
+    Institute of Technology, Durgapur organised by Centre for Cognitive Activities(CCA), wdct, web, design, creative team,
+    coding, development, web development, research and development, e cell, entrepreneurship, R&D, robotics, robo cell,
+    robowars, hackathon, events, core cell, management, official, best fest of nitd, aarohan nites, 2nd largest, eastern 
+    India, 2nd largest fest in eastern India, gaming, electronics, computer science events, mechatronics" />
+
+    <meta name="author" content="Web, Design and Creative Team(WDCT), Center for Cognitive Activities(CCA),
+    National Institute of Technology, Durgapur(NIT Dgp)" />
+    <meta name="robots" content="index,follow" />
+	<link rel="canonical" href="https://arhn.co.in" />
+	
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-133954011-1"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-133954011-1');
+	</script>
+
+	<style>
+		body {
+			background-image: url('{% static "img/background-01.png" %}');
+			background-color: #48b8d0;
+		}
+
+		h3 {
+			color: white;
+		}
+
+		p {
+			color: white;
+		}
+
+		a:hover {
+			text-decoration: none;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div style="overflow:auto;height:100%">
+		<!-- Menu Icon -->
+		<div class="menuIcon">
+			<span class="icon icon-bars"></span>
+			<span class="icon icon-bars overlay"></span>
+		</div>
+		<!-- mobile menu -->
+		<div class="overlay-menu">
+			<ul id="menu">
+				<li><a href="../../">
+						<p id="h1"><b>HOME</b></p>
+					</a></li>
+				<li><a href="{% url 'leaderboard' %}">
+						<p id="h1"><b>LEADER BOARD</b></p>
+					</a></li>
+				<li><a href="{% url 'contact' %}">
+						<p id="h1"><b>CONTACT US</b></p>
+					</a></li>
+					{% if user.is_authenticated %}
+					<li><a href="{% url 'logout' %}">
+							<p id="h1"><b>LOGOUT</b></p>
+						</a></li>
+					{% else %}
+					<li><a href="{% url 'signin' %}">
+							<p id="h1"><b>SIGN IN</b></p>
+						</a></li>
+					<li><a href="{% url 'signup' %}">
+						<p id="h1"><b>SIGN UP</b></p>
+					</a></li>
+					{% endif %}
+				<!-- <p>
+				  <a href="https://www.facebook.com/arhn.nitd/">
+					<i class="fa fa-facebook-square" style="font-size:20px"></i>
+				  </a>
+				</p>
+				<p>
+				  <a href="https://www.youtube.com/user/arhnNITD">
+					<i class="fa fa-youtube" style="font-size:20px"></i>
+				  </a>
+				</p>
+				<p>
+				  <a href="https://www.instagram.com/arhn.nitd/">
+					<i class="fa fa-instagram" style="font-size:20px"></i>
+				  </a>
+				</p>
+				<p>
+				  <a href="https://twitter.com/aarohan_nitdgp">
+					<i class="fa fa-twitter" style="font-size:20px"></i>
+				  </a>
+				</p> -->
+				</li>
+			</ul>
+		</div>
+		<header>
+			<div class="logo">
+				<img src="{% static "img/Aarohan-2019-Header.png" %}" style="width: 150px;" alt="AAROHAN" srcset="">
+			</div>
+			<nav>
+				<ul>
+					<li><a href="../">
+						<p id="h2"><b>Home</b></p>
+					</a></li>
+				<li><a href="{% url 'leaderboard' %}">
+						<p id="h1"><b>LEADER BOARD</b></p>
+					</a></li>
+				<li><a href="{% url 'contact' %}">
+						<p id="h1"><b>CONTACT US</b></p>
+					</a></li>
+					{% if user.is_authenticated %}
+					<li><a href="{% url 'logout' %}">
+							<p id="h1"><b>LOGOUT</b></p>
+						</a></li>
+					{% else %}
+					<li><a href="{% url 'signin' %}">
+							<p id="h1"><b>SIGN IN</b></p>
+						</a></li>
+					<li><a href="{% url 'signup' %}">
+						<p id="h1"><b>SIGN UP</b></p>
+					</a></li>
+					{% endif %}
+				</ul>
+
+			</nav>
+			<div class="menu-toggle">
+				<i class="fa fa-bars"></i>
+			</div>
+		</header>
+
+
+		<div id="iq-logo"><img src="{% static "img/name.png" %}"></div>
+
+<div style="display: flex;justify-content: center;">
+	<a href="{% url 'inquest' %}">
+	<button style="    padding: 1.5rem 3rem;
+    background-color: #d83d07;
+	color: white;
+	border-radius: 7px;
+    border: 0;"><h1 style="margin: 0;font-size: 1.7rem;font-weight: 700">PLAY NOW</h1></button></a>
+</div>
+
+			<div class="container-fluid">
+				<div class="group">
+					<div class="row justify-content-center">
+						<div class="card col-xs-12 col-sm-4 col-sm-offset-2">
+							<div class="content">
+								<!-- <h3>RULES</h3> -->
+								<h4 style="color: #d74136;">Inquest?</h4>
+								<h5 style="color:ghostwhite;">Inquest is an online treasure hunt hosted by WDCT,CCA. as a part of Aarohan 2019.</h5>
+							</div>
+						</div>
+						<div class="card col-xs-12 col-sm-4">
+
+							<div class="content">
+								<!-- <h3>CODE OF CONDUCT</h3> -->
+								<h4 style="color: #d74136;">Rules</h4>
+								<h5 style="color:ghostwhite;">Revealing answers or questions on anysocial media will result in immediate disqualification. Contact Event Heads for queries.</h5>
+							</div>
+						</div>
+					</div>
+					<div class="row justify-content-center">
+						<div class="card col-xs-12 col-sm-4 col-sm-offset-2">
+
+							<div class="content">
+								<!-- <h3>Name</h3> -->
+								<h4 style="color: #d74136;">Instructions</h4>
+								<h5 style="color:ghostwhite;">You have unlimited attempts for every level. You won't be judged by the number of attempts you make.Googling is the key to success.</h5>
+							</div>
+						</div>
+						<div class="card col-xs-12 col-sm-4">
+
+							<div class="content">
+								<!-- <h3>Name</h3> -->
+								<h4 style="color: #d74136;">What if I win ?</h4>
+								<h5 style="color:ghostwhite;">Exciting Prizes and Goodies for top three players.</h5>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+	<!--  -->
+	<!-- <script  src="js/background.js"></script> -->
+	
+</body>
+<script src="{% static 'js/navbar.js' %}"></script>
+</html>
