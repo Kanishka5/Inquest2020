@@ -11,7 +11,8 @@
   float: left;
   width: auto;
   height: auto;
-  padding-left: 3rem;
+  /* padding-left: 3rem; //for aarohan */
+  padding-left: 0rem; //for CCA cell event
 }
 
 .nav div.logo a {
