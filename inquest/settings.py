@@ -60,7 +60,7 @@ ROOT_URLCONF = 'inquest.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -102,6 +102,7 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = ''        #write ur email id between ' '
 EMAIL_HOST_PASSWORD = ''              #write ur password here between ' '
 EMAIL_USE_TLS = True
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 
 
 WSGI_APPLICATION = 'inquest.wsgi.application'
