@@ -150,6 +150,7 @@ def signup(request):
                 user.save()
                 user.is_active = True
                 user.last_updated = timezone.now()
+                user.email=form.cleaned_data['username']
                 user.save()
                 new_user = authenticate(username=form.cleaned_data['username'],
                                         password=form.cleaned_data['password1'],
