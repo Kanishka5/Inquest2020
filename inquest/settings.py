@@ -111,23 +111,23 @@ WSGI_APPLICATION = 'inquest.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
- 'default': {
-     'ENGINE': 'django.db.backends.sqlite3',
-     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
- }
-}
-
 # DATABASES = {
-#   'default': {
-#       'ENGINE': 'django.db.backends.mysql',
-#       'NAME': 'inquest20',
-#       'USER': 'inquest_admin',
-#       'PASSWORD': 'Inquestcca',
-#       'HOST': 'inquest.cvs3yveityi3.ap-south-1.rds.amazonaws.com',
-#       'PORT': '3306'
-#   }
+#  'default': {
+#      'ENGINE': 'django.db.backends.sqlite3',
+#      'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#  }
 # }
+
+DATABASES = {
+  'default': {
+      'ENGINE': 'django.db.backends.postgresql',
+      'NAME': 'd89ti3h09npn04',
+      'USER': 'wbweveulquykva',
+      'PASSWORD': '2346ce895aae72c9a4efb6ddb46372d6472ba1f44e80aa76d7d3070a2db69503',
+      'HOST': 'ec2-18-235-109-97.compute-1.amazonaws.com',
+      'PORT': '5432'
+  }
+}
 
 
 # Password validation

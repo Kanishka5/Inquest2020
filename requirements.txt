@@ -1,2 +1,6 @@
 django
 social-auth-app-django
+django_cleanup
+psycopg2-binary
+gunicorn
+pillow
