@@ -48,23 +48,30 @@
     <link rel="stylesheet" type="text/css" href="{% static "css/contact.css" %}"/>
     <link rel="stylesheet" type="text/css" href="{% static "css/nav.css" %}"/>
 
+{#    <link rel="stylesheet" type="text/css" href="{% static "css/landing.css" %}" />#}
     <link rel="stylesheet" href="{% static "css/timerPageBg.css" %}">
 </head>
 <body>
+
 <div id="message">
+    <div class="container cont">
+        <div class="inq-logo">
+            <img style="width: 43vw; height: auto;" src="{% static "img/Inquest.png" %}" alt="inquest">
+        </div>
+    </div>
     <div id="timer">
         Create the timer here
     </div>
     {% if started %}
-    <div style="width: 100%;text-align: center; padding-bottom: 5vh;z-index: 1000;">
-        <button class="btn btn-success boton"
-                style="padding:0.7rem 2rem;border:0;margin-top:3vh;min-width: 9vw;background: linear-gradient(90deg, rgb(111, 158, 65) 0%, rgb(73, 111, 23) 100%);">
-            <a href="{% url 'inquest' %}" style="    text-decoration: none;
+        <div style="width: 100%;text-align: center; padding-bottom: 5vh;z-index: 1000;">
+            <button class="btn btn-success boton"
+                    style="padding:0.7rem 2rem;border:0;margin-top:3vh;min-width: 9vw;background: linear-gradient(90deg, rgb(111, 158, 65) 0%, rgb(73, 111, 23) 100%);">
+                <a href="{% url 'inquest' %}" style="    text-decoration: none;
       color: white;">
-                <h3 style="margin:0;font-size: 1.5em;">PLAY</h3>
-            </a>
-        </button>
-    </div>
+                    <h3 style="margin:0;font-size: 1.5em;">PLAY</h3>
+                </a>
+            </button>
+        </div>
     {% endif %}
 </div>
 
