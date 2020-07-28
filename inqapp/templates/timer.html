@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inquest</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="Inquest is the online treasure hunt of the official techno-management fest of National
+    Institute of Technology, Durgapur organised by Centre for Cognitive Activities(CCA)"/>
+
+    <meta name="keywords" content="aarohan, 2020, 2k20, nit, nitd, nitdgp, official techno-management fest,
+    fest, festival, science, engineering, techno-management, durgapur, National Institute of Technology, Durgapur,
+    Centre for Cognitive Activities(CCA), Aarohan is the official techno-management fest of National
+    Institute of Technology, Durgapur organised by Centre for Cognitive Activities(CCA), wdct, web, design, creative team,
+    coding, development, web development, research and development, e cell, entrepreneurship, R&D, robotics, robo cell,
+    robowars, hackathon, events, core cell, management, official, best fest of nitd, aarohan nites, 2nd largest, eastern
+    India, 2nd largest fest in eastern India, gaming, electronics, computer science events, mechatronics"/>
+
+    <meta name="author" content="Web, Design and Creative Team(WDCT), Center for Cognitive Activities(CCA),
+    National Institute of Technology, Durgapur(NIT Dgp)"/>
+    <meta name="robots" content="index,follow"/>
+    <link rel="canonical" href="https://arhn.co.in"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <script>
+        var OneSignal = window.OneSignal || [];
+        OneSignal.push(function () {
+            OneSignal.init({
+                appId: "5cc55361-23b3-42f3-a60f-d0f0729342ed",
+            });
+        });
+    </script>
+
+    <link rel="icon" type="image/png" href="{% static "img/NEW-CCA-Logo.png" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "vendor/bootstrap/css/bootstrap.min.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "fonts/font-awesome-4.7.0/css/font-awesome.min.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "fonts/iconic/css/material-design-iconic-font.min.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "vendor/animate/animate.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "vendor/css-hamburgers/hamburgers.min.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "vendor/animsition/css/animsition.min.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "vendor/select2/select2.min.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "vendor/daterangepicker/daterangepicker.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/util.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/bg2.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/contact.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/nav.css" %}"/>
+
+    <link rel="stylesheet" href="{% static "css/timerPageBg.css" %}">
+</head>
+<body>
+<div id="message">
+    <div id="timer">
+        Create the timer here
+    </div>
+    {% if started %}
+    <div style="width: 100%;text-align: center; padding-bottom: 5vh;z-index: 1000;">
+        <button class="btn btn-success boton"
+                style="padding:0.7rem 2rem;border:0;margin-top:3vh;min-width: 9vw;background: linear-gradient(90deg, rgb(111, 158, 65) 0%, rgb(73, 111, 23) 100%);">
+            <a href="{% url 'inquest' %}" style="    text-decoration: none;
+      color: white;">
+                <h3 style="margin:0;font-size: 1.5em;">PLAY</h3>
+            </a>
+        </button>
+    </div>
+    {% endif %}
+</div>
+
+<script src="{% static "vendor/jquery/jquery-3.2.1.min.js" %}"></script>
+<script src="{% static "vendor/bootstrap/js/bootstrap.min.js" %}"></script>
+<script src="{% static "vendor/daterangepicker/moment.min.js" %}"></script>
+<script src="{% static "vendor/daterangepicker/daterangepicker.js" %}"></script>
+<script src="{% static "vendor/countdowntime/countdowntime.js" %}"></script>
+
+<script src="{% static "js/timerPageBg.js" %}"></script>
+</body>
+</html>
