@@ -107,7 +107,7 @@ def home(request):
         timeleft =int(timeleft)
         print(eventtime)
         started = False
-        return render(request,'welcome.html',{'started':started,'starttime':eventtime})
+        return render(request,'timer.html',{'started':started,'starttime':eventtime})
     elif timenow>eventtime and timenow<eventend:
         #game is live
         timeleft = eventend-timenow
@@ -150,6 +150,7 @@ def signup(request):
                 user.save()
                 user.is_active = True
                 user.last_updated = timezone.now()
+                user.email=form.cleaned_data['username']
                 user.save()
                 new_user = authenticate(username=form.cleaned_data['username'],
                                         password=form.cleaned_data['password1'],

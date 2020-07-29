@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_cleanup.apps.CleanupConfig', # to delete media files after deleting from admin panel
     # 'social_django' ,
 ]
 
@@ -119,12 +120,12 @@ DATABASES = {
 
 # DATABASES = {
 #   'default': {
-#       'ENGINE': 'django.db.backends.mysql',
-#       'NAME': 'inquest20',
-#       'USER': 'inquest_admin',
-#       'PASSWORD': 'Inquestcca',
-#       'HOST': 'inquest.cvs3yveityi3.ap-south-1.rds.amazonaws.com',
-#       'PORT': '3306'
+#       'ENGINE': 'django.db.backends.postgresql',
+#       'NAME': 'd89ti3h09npn04',
+#       'USER': 'wbweveulquykva',
+#       'PASSWORD': '2346ce895aae72c9a4efb6ddb46372d6472ba1f44e80aa76d7d3070a2db69503',
+#       'HOST': 'ec2-18-235-109-97.compute-1.amazonaws.com',
+#       'PORT': '5432'
 #   }
 # }
 

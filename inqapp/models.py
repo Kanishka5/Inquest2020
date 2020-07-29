@@ -27,6 +27,7 @@ class Question(models.Model):
     image=models.ImageField(upload_to='images/',help_text='Please upload an image',blank=True)
     answer=models.CharField(max_length=50,blank=False)
     message=models.CharField(max_length=300,blank=True)
+    audio_question=models.FileField(upload_to='audio/',blank=True) #use .mp3 only
     def publish(self):
         self.save()
 

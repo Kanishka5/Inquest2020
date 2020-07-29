@@ -15,7 +15,8 @@
   {% load static %}
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="image/png" href="{% static "img/Aarohan-Tab-Logo" %}" />
+{#  <link rel="icon" type="image/png" href="{% static "img/Aarohan-Tab-Logo" %}" />#}
+    <link rel="icon" type="image/png" href="{% static "img/NEW-CCA-Logo.png" %}"/>
   <title>Inquest</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -89,7 +90,15 @@
           font-size: 1.5rem;
           color: white;">Q:{{ question.question}}</h1>
         {% endif %}
+        {% if question.image %}
         <img src="{{question.image.url}}" id="qimg" />
+        {% endif %}
+        {% if question.audio_question %}
+            <audio controls>
+              <source src="{{ question.audio_question.url }}" type="audio/mp3">
+              Your browser does not support the audio tag.
+            </audio>
+        {% endif %}
         {% if flash == 'Try Harder' %}
         <h3 style="    margin-top: 5vh;
           color: red;">{{flash}}</h3>
