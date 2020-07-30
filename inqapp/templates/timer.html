@@ -50,18 +50,22 @@
 
 {#    <link rel="stylesheet" type="text/css" href="{% static "css/landing.css" %}" />#}
     <link rel="stylesheet" href="{% static "css/timerPageBg.css" %}">
+    <link rel="stylesheet" href="{% static "css/countdowntime.css" %}">
 </head>
 <body>
 
 <div id="message">
     <div class="container cont">
-        <div class="inq-logo">
-            <img style="width: 43vw; height: auto;" src="{% static "img/Inquest.png" %}" alt="inquest">
+        <div class="inq-logo" >
+            
+            <img style="width: 43vw; height: auto;margin-left:3vw;" src="{% static "img/Inquest.png" %}" alt="inquest">
         </div>
     </div>
-    <div id="timer">
-        Create the timer here
-    </div>
+    
+  <div id="time" value='{{starttime}}' style="margin-bottom: -10vh;" >
+
+  </div>
+
     {% if started %}
         <div style="width: 100%;text-align: center; padding-bottom: 5vh;z-index: 1000;">
             <button class="btn btn-success boton"
@@ -82,5 +86,9 @@
 <script src="{% static "vendor/countdowntime/countdowntime.js" %}"></script>
 
 <script src="{% static "js/timerPageBg.js" %}"></script>
+<script src="{% static "js/countdowntime.js" %}"></script>
+<script>
+    
+</script>
 </body>
 </html>

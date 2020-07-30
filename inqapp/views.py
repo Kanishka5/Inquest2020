@@ -107,7 +107,7 @@ def home(request):
         timeleft =int(timeleft)
         print(eventtime)
         started = False
-        return render(request,'timer.html',{'started':started,'starttime':eventtime})
+        return render(request,'timer.html',{'started':started,'starttime':eventtime.strftime("%Y/%m/%d %H:%M:%S")})
     elif timenow>eventtime and timenow<eventend:
         #game is live
         timeleft = eventend-timenow
