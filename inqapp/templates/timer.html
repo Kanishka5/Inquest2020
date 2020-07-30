@@ -43,7 +43,7 @@
     <link rel="stylesheet" type="text/css" href="{% static "vendor/select2/select2.min.css" %}"/>
     <link rel="stylesheet" type="text/css" href="{% static "vendor/daterangepicker/daterangepicker.css" %}"/>
 
-{#    <link rel="stylesheet" type="text/css" href="{% static "css/landing.css" %}" />#}
+    {#    <link rel="stylesheet" type="text/css" href="{% static "css/landing.css" %}" />#}
     <link rel="stylesheet" href="{% static "css/timerPageBg.css" %}">
     <link rel="stylesheet" href="{% static "css/countdowntime.css" %}">
 </head>
@@ -51,27 +51,14 @@
 
 <div id="message">
     <div class="container cont">
-        <div class="inq-logo" >
-            
+        <div class="inq-logo">
+
             <img style="width: 43vw; height: auto;margin-left:3vw;" src="{% static "img/Inquest.png" %}" alt="inquest">
         </div>
     </div>
-    
-  <div id="time" value='{{starttime}}' style="margin-bottom: -10vh;" >
 
-  </div>
-
-    {% if started %}
-        <div style="width: 100%;text-align: center; padding-bottom: 5vh;z-index: 1000;">
-            <button class="btn btn-success boton"
-                    style="padding:0.7rem 2rem;border:0;margin-top:3vh;min-width: 9vw;background: linear-gradient(90deg, rgb(111, 158, 65) 0%, rgb(73, 111, 23) 100%);">
-                <a href="{% url 'inquest' %}" style="    text-decoration: none;
-      color: white;">
-                    <h3 style="margin:0;font-size: 1.5em;">PLAY</h3>
-                </a>
-            </button>
-        </div>
-    {% endif %}
+    <div id="time" value='{{ starttime }}' style="margin-bottom: -10vh;">
+    </div>
 </div>
 
 <script src="{% static "vendor/jquery/jquery-3.2.1.min.js" %}"></script>
@@ -83,7 +70,24 @@
 <script src="{% static "js/timerPageBg.js" %}"></script>
 <script src="{% static "js/countdowntime.js" %}"></script>
 <script>
-    
+    window.onload = function start() {
+        dispPlay();
+    };
+
+    function dispPlay() {
+        window.setInterval(function () {
+            var start = new Date(2020, 6, 30, 20, 52, 0, 0); //set the event start time manually here.Note: In javascript months start from 0.
+            var now = new Date();
+            {#console.log(start, now);#}
+            if (now >= start) {
+                {#console.log("TRUE***************************");#}
+                location.reload();
+            }
+        }, 1000);
+    }
+</script>
+<script>
+
 </script>
 </body>
 </html>
