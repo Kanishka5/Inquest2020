@@ -2,7 +2,7 @@
  
 .countdown {
   width: 99vw;
-  height: 25vh;
+  height: auto;
   display: block;
   
   background: transparent;
