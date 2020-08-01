@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Question,CustomUser,Event
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
@@ -157,7 +157,8 @@ def signup(request):
                                         )
                 login(request, new_user)
                 message="Logged In !"
-                return render(request,'welcome.html',{'message':message})
+                # return render(request,'welcome.html',{'message':message})
+                return redirect('/')
             else:
                 message="You are logged in already"
                 return render(request,'welcome.html',{'message':message})

@@ -21,6 +21,24 @@
   <link rel="stylesheet" type="text/css" href="{% static "css/bg2.css" %}" />
   <link rel="stylesheet" type="text/css" href="{% static "css/nav.css" %}" />
   <link rel="stylesheet" type="text/css" href="{% static "css/leader.css" %}" />
+
+    <!-- For PUSH NOTIFICATION using onesignal -->
+    <script src="{% static "js/OneSignalSDK.js" %}" async=""></script>
+    <script>
+        var OneSignal = window.OneSignal || [];
+        var initConfig = {
+            appId: "5cc55361-23b3-42f3-a60f-d0f0729342ed",
+            notifyButton: {
+                enable: true
+            },
+        };
+        OneSignal.push(function () {
+            OneSignal.SERVICE_WORKER_PARAM = {scope: '/static/'};
+            OneSignal.SERVICE_WORKER_PATH = 'static/OneSignalSDKWorker.js';
+            OneSignal.SERVICE_WORKER_UPDATER_PATH = 'static/OneSignalSDKUpdaterWorker.js';
+            OneSignal.init(initConfig);
+        });
+    </script>
 </head>
 
 <body>
