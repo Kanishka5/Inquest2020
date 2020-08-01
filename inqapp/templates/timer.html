@@ -58,20 +58,20 @@
     }    
     .logos{
         position: fixed;
-        margin-top: -40vh;
-        margin-left:-40vw;
+        top:0px;
+      
+        left:0px;
 
     }
     @media only screen and (max-width: 700px) {
-  .logos{
-    margin-left: -30vw;
-  }
+  
   .imlogo{
       width:75px;
   }
 }
-    </style>
    
+    </style>
+  
           <div class="logos"  >
             <a href="../">
               <img  class="imlogo" src="{% static "img/NEW-CCA-Logo_Colored.png" %}" />
@@ -100,6 +100,7 @@
 <script src="{% static "js/timerPageBg.js" %}"></script>
 <script src="{% static "js/countdowntime.js" %}"></script>
 <script>
+   
     window.onload = function start() {
         dispPlay();
     };
