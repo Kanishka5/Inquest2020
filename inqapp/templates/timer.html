@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <title>Inquest</title>
     <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="description" content="Inquest is the online treasure hunt of the official techno-management fest of National
     Institute of Technology, Durgapur organised by Centre for Cognitive Activities(CCA)"/>
@@ -48,7 +52,33 @@
     <link rel="stylesheet" href="{% static "css/countdowntime.css" %}">
 </head>
 <body>
+    <style>
+    .imlogo{
+        width: 100px;
+    }    
+    .logos{
+        position: fixed;
+        margin-top: -40vh;
+        margin-left:-40vw;
 
+    }
+    @media only screen and (max-width: 700px) {
+  .logos{
+    margin-left: -30vw;
+  }
+  .imlogo{
+      width:75px;
+  }
+}
+    </style>
+   
+          <div class="logos"  >
+            <a href="../">
+              <img  class="imlogo" src="{% static "img/NEW-CCA-Logo_Colored.png" %}" />
+              <img class="imlogo" src="{% static "img/WDCT_logo_white.png" %}"  />
+            </a>
+          </div>
+       
 <div id="message">
     <div class="container cont">
         <div class="inq-logo">
@@ -76,7 +106,7 @@
 
     function dispPlay() {
         window.setInterval(function () {
-            var start = new Date(2020, 6, 30, 20, 52, 0, 0); //set the event start time manually here.Note: In javascript months start from 0.
+            var start = new Date(2020, 7, 30, 20, 52, 0, 0); //set the event start time manually here.Note: In javascript months start from 0.
             var now = new Date();
             {#console.log(start, now);#}
             if (now >= start) {
@@ -86,6 +116,7 @@
         }, 1000);
     }
 </script>
+
 <script>
 
 </script>
