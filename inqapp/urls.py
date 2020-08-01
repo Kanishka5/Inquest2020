@@ -23,6 +23,8 @@ urlpatterns = [
     url(r'^login/$', views.login, name='login'),
     url(r'^logout/$', views.logout, name='logout'),
     url(r'^auth/', include('social_django.urls', namespace='social')),
-    url('nopage',views.noPage, name="404")
+    url('nopage',views.noPage, name="404"),
     #url(r'^(?P<string>[ \w\-]+)/$',views.question, name=''),
+    path('OneSignalSDKWorker.js', TemplateView.as_view(template_name='OneSignalSDKWorker.js', content_type='application/x-javascript')),
+    path('OneSignalSDKUpdaterWorker.js', TemplateView.as_view(template_name='OneSignalSDKUpdaterWorker.js', content_type='application/x-javascript')),
 ]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="description" content="Inquest is the online treasure hunt of the official techno-management fest of National
     Institute of Technology, Durgapur organised by Centre for Cognitive Activities(CCA)"/>
@@ -27,15 +28,24 @@
     <link rel="canonical" href="https://arhn.co.in"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <!-- For PUSH NOTIFICATION using onesignal -->
+    <script src="{% static "js/OneSignalSDK.js" %}" async=""></script>
     <script>
         var OneSignal = window.OneSignal || [];
+        var initConfig = {
+            appId: "89911c87-6fb0-4566-b3a8-4d847055d628",
+            notifyButton: {
+                enable: true
+            },
+        };
         OneSignal.push(function () {
-            OneSignal.init({
-                appId: "5cc55361-23b3-42f3-a60f-d0f0729342ed",
-            });
+            OneSignal.SERVICE_WORKER_PARAM = {scope: '/static/'};
+            OneSignal.SERVICE_WORKER_PATH = 'static/OneSignalSDKWorker.js';
+            OneSignal.SERVICE_WORKER_UPDATER_PATH = 'static/OneSignalSDKUpdaterWorker.js';
+            OneSignal.init(initConfig);
         });
     </script>
+
 
     <link rel="icon" type="image/png" href="{% static "img/NEW-CCA-Logo.png" %}"/>
     <link rel="stylesheet" type="text/css" href="{% static "vendor/bootstrap/css/bootstrap.min.css" %}"/>
@@ -50,35 +60,32 @@
     {#    <link rel="stylesheet" type="text/css" href="{% static "css/landing.css" %}" />#}
     <link rel="stylesheet" href="{% static "css/timerPageBg.css" %}">
     <link rel="stylesheet" href="{% static "css/countdowntime.css" %}">
+    <style>
+        .imlogo {
+            width: 100px;
+        }
+
+        .logos {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+        }
+
+        @media only screen and (max-width: 700px) {
+            .imlogo {
+                width: 75px;
+            }
+        }
+
+    </style>
 </head>
 <body>
-    <style>
-    .imlogo{
-        width: 100px;
-    }    
-    .logos{
-        position: fixed;
-        top:0px;
-      
-        left:0px;
 
-    }
-    @media only screen and (max-width: 700px) {
-  
-  .imlogo{
-      width:75px;
-  }
-}
-   
-    </style>
-  
-          <div class="logos"  >
-            <a href="../">
-              <img  class="imlogo" src="{% static "img/NEW-CCA-Logo_Colored.png" %}" />
-              <img class="imlogo" src="{% static "img/WDCT_logo_white.png" %}"  />
-            </a>
-          </div>
-       
+<div class="logos">
+    <img class="imlogo" src="{% static "img/NEW-CCA-Logo_Colored.png" %}" alt="CCA"/>
+    <img class="imlogo" src="{% static "img/WDCT_logo_white.png" %}" alt="WDCT"/>
+</div>
+
 <div id="message">
     <div class="container cont">
         <div class="inq-logo">
@@ -100,7 +107,7 @@
 <script src="{% static "js/timerPageBg.js" %}"></script>
 <script src="{% static "js/countdowntime.js" %}"></script>
 <script>
-   
+
     window.onload = function start() {
         dispPlay();
     };
@@ -109,9 +116,7 @@
         window.setInterval(function () {
             var start = new Date(2020, 7, 30, 20, 52, 0, 0); //set the event start time manually here.Note: In javascript months start from 0.
             var now = new Date();
-            {#console.log(start, now);#}
             if (now >= start) {
-                {#console.log("TRUE***************************");#}
                 location.reload();
             }
         }, 1000);
