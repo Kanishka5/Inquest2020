@@ -10,6 +10,7 @@ from django.http import HttpResponse,JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
+from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 
 from django.utils import timezone
 import datetime
@@ -128,8 +129,19 @@ def home(request):
 
 
 def leaderboard(request):
-    participants = CustomUser.objects.filter().order_by('-score','last_updated')
-    return render(request, 'leaderboard.html', {'participants': participants},)
+   #participants = CustomUser.objects.filter().order_by('-score','last_updated')
+    all_participants=Paginator(CustomUser.objects.filter().order_by('-score','last_updated'),20)
+    page=request.GET.get('page')
+    
+    try:
+        participants=all_participants.page(page)
+    except PageNotAnInteger:
+        participants=all_participants.page(1)
+    except EmptyPage:
+        participants=all_participants.page(1)    
+    lists=all_participants.per_page*(participants.number-1)
+
+    return render(request, 'leaderboard.html', {'participants': participants,'lists':lists},)
 
 def profile(request):
     return render(request,'temp.html')

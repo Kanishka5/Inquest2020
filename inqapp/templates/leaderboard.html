@@ -42,6 +42,7 @@
 </head>
 
 <body>
+  
   <canvas id="stars" width="300" height="300"></canvas>
   <!-- navbar -->
   <nav class="nav">
@@ -73,10 +74,11 @@
       </span>
     </div>
   </nav>
+ 
 
-  <div class="table">
+ <div class="table">
     <div class="table-cell">
-      <ul class="leader">
+      <ul class="leader" style="margin-bottom:30vh;margin-top:30vh;">
         <div id="decoration"></div>
         <div id="decoration2"></div>
         <div id="decoration3"></div>
@@ -93,7 +95,7 @@
         <li style="display: flex;
         justify-content: space-between;
         align-items: center;">
-          <span class="list_num">#{{ forloop.counter }}</span>
+          <span class="list_num">#{{ forloop.counter|add:lists }}</span>
 
           <h3 style="text-align: left; font-size: 1.2rem;">{{ participant.name }}</h3>
           <h3 style="font-size: 1.2rem;">{{ participant.college }}</h3>
@@ -103,10 +105,47 @@
 
         {% endfor %}}
 
+         <li style="background: transparent;">
+          <div  style="text-align: center;">
 
+            <ul class="pagination" style="display:inline-flex;background-color: white;height:30px;"  >
+              
+              {% if participants.has_previous %}
+              <li class="page-item" style="background: transparent;">
+                <a class="page-link" href="?page={{participants.previous_page_number}}" aria-label="Previous" >
+                  <span aria-hidden="true" style=" color:#212529">&laquo; Previous </span>
+                </a>
+              </li>
+              <li class="page-item" style="background: transparent;"><a class="page-link" href="?page={{participants.previous_page_number}}" >{{participants.previous_page_number}}</a></li>
+              {% endif %}
+              <li class="page-item" style="background: transparent;"><a class="page-link" href="#" style="color:  #212529 ;font-weight: bolder;">{{participants.number}}</a></li>
+              {% if participants.has_next%}
+              <li class="page-item" style="background: transparent;"><a class="page-link" href="?page={{participants.next_page_number}}" >{{participants.next_page_number}}</a></li>
+              
+              <li class="page-item" style="background: transparent;">
+                <a class="page-link" href="?page={{participants.next_page_number}}" aria-label="Next" >
+                  <span aria-hidden="true" style="color: #212529;"> Next &raquo;</span>
+                </a>
+              </li>
+              {% endif %}
+            </ul>
+    
+        </div>
+         </li>
       </ul>
+    
+    
+        
+      
     </div>
-  </div>
+  
+  
+
+
+
+</div>
+ 
+  
 
   <script type="text/javascript" src="https://rawgit.com/ironwallaby/delaunay/master/delaunay.js"></script>
   <script type="text/javascript" src="{% static "js/bg2.js" %}"></script>
