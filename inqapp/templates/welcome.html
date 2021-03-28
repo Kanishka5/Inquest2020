@@ -53,14 +53,15 @@
   <link rel="stylesheet" type="text/css" href="{% static "vendor/daterangepicker/daterangepicker.css" %}" />
   <link rel="stylesheet" type="text/css" href="{% static "css/util.css" %}" />
   <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}" />
-  <link rel="stylesheet" type="text/css" href="{% static "css/bg2.css" %}" />
+{#  <link rel="stylesheet" type="text/css" href="{% static "css/bg2.css" %}" />#}
+    <link rel="stylesheet" type="text/css" href="{% static "css/bg3.css" %}" />
   <link rel="stylesheet" type="text/css" href="{% static "css/landing.css" %}" />
   <link rel="stylesheet" type="text/css" href="{% static "css/nav.css" %}" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
-  <canvas id="stars" width="300" height="300"></canvas>
+{#  <canvas id="stars" width="300" height="300"></canvas>#}
   <!-- registered alert -->
   {% if message == 'Logged In !' %}
   <div id="msg" class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -102,7 +103,7 @@
     </div>
   </nav>
 
-  <div class="container cont">
+  <div class="container cont" style="z-index: 1; position: relative;">
     <div class="inq-logo">
       <img src="{% static "img/Inquest.png" %}" alt="inquest">
     </div>
@@ -177,9 +178,13 @@
       </div>
     </div>
   </div>
+  <div id="input" >
+  </div>
 
   <script type="text/javascript" src="https://rawgit.com/ironwallaby/delaunay/master/delaunay.js"></script>
-  <script type="text/javascript" src="{% static "js/bg2.js" %}"></script>
+{#  <script type="text/javascript" src="{% static "js/bg2.js" %}"></script>#}
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
+<script type="text/javascript" src="{% static "js/bg3.js" %}"></script>
 
   <script src="{% static "vendor/jquery/jquery-3.2.1.min.js" %}"></script>
 
