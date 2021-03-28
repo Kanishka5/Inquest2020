@@ -72,18 +72,20 @@ class FullscreenCanvas {
     window;
 
     this.width = innerWidth;
-    this.height = innerHeight*2;
+    this.height = innerHeight;
+    // this.height = innerHeight*2;
 
     const scale = disableScale ? 1 : DPR;
 
     this.realWidth = canvas.width = innerWidth * scale;
-    this.realHeight = canvas.height = innerHeight*2 * scale;
+    this.realHeight = canvas.height = innerHeight * scale;
+    // this.realHeight = canvas.height = innerHeight*2 * scale;
     canvas.style.width = `${innerWidth}px`;
-    // canvas.style.height = `${innerHeight}px`;
-    if(innerHeight<660)
-        canvas.style.height = `${innerHeight*3}px`;
-    else
-        canvas.style.height = `${innerHeight*2}px`;
+    canvas.style.height = `${innerHeight}px`;
+    // if(innerHeight<660)
+    //     canvas.style.height = `${innerHeight*3}px`;
+    // else
+    //     canvas.style.height = `${innerHeight*2}px`;
     // canvas.style.minHeight = `${200}vh`;
     canvas.style.zIndex = `0`;
 
@@ -152,7 +154,7 @@ class FullscreenCanvas {
 
     this.container = target;
 
-    canvas.style.position = 'absolute';
+    canvas.style.position = 'fixed';
     canvas.style.left = '0px';
     canvas.style.top = '0px';
 
