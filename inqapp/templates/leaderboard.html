@@ -18,7 +18,8 @@
   <link rel="stylesheet" type="text/css" href="{% static "vendor/daterangepicker/daterangepicker.css" %}" />
   <link rel="stylesheet" type="text/css" href="{% static "css/util.css" %}" />
   <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}" />
-  <link rel="stylesheet" type="text/css" href="{% static "css/bg2.css" %}" />
+   <!--link rel="stylesheet" type="text/css" href="{% static "css/bg2.css" %}" /-->
+   <link rel="stylesheet" type="text/css" href="{% static "css/bg3.css" %}" />
   <link rel="stylesheet" type="text/css" href="{% static "css/nav.css" %}" />
   <link rel="stylesheet" type="text/css" href="{% static "css/leader.css" %}" />
 
@@ -43,9 +44,10 @@
 
 <body>
   
-  <canvas id="stars" width="300" height="300"></canvas>
-  <!-- navbar -->
-  <nav class="nav">
+
+  <!--<canvas id="stars" width="300" height="300"></canvas>
+   navbar -->
+  <nav class="nav" style="z-index:9999;">
     <div class="container" id="nav-cont">
       <div class="logo">
         <a href="../">
@@ -76,7 +78,7 @@
   </nav>
  
 
- <div class="table">
+ <div class="table" style="z-index:999;position: absolute;">
     <div class="table-cell">
       <ul class="leader" style="margin-bottom:30vh;margin-top:30vh;">
         <div id="decoration"></div>
@@ -144,11 +146,14 @@
 
 
 </div>
- 
+  <div id="input" >
+  </div>
   
 
   <script type="text/javascript" src="https://rawgit.com/ironwallaby/delaunay/master/delaunay.js"></script>
-  <script type="text/javascript" src="{% static "js/bg2.js" %}"></script>
+  <!--script type="text/javascript" src="{% static "js/bg2.js" %}"></script-->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
+<script type="text/javascript" src="{% static "js/bg3.js" %}"></script>
   <script src="{% static "vendor/jquery/jquery-3.2.1.min.js" %}"></script>
   <script src="{% static "vendor/animsition/js/animsition.min.js" %}"></script>
   <script src="{% static "vendor/bootstrap/js/bootstrap.min.js" %}"></script>

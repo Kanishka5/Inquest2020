@@ -31,15 +31,17 @@
   <link rel="stylesheet" type="text/css" href="{% static "vendor/daterangepicker/daterangepicker.css" %}" />
   <link rel="stylesheet" type="text/css" href="{% static "css/util.css" %}" />
   <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}" />
-  <link rel="stylesheet" type="text/css" href="{% static "css/bg2.css" %}" />
+   <!--link rel="stylesheet" type="text/css" href="{% static "css/bg2.css" %}" /-->
+   <link rel="stylesheet" type="text/css" href="{% static "css/bg3.css" %}" />
   <link rel="stylesheet" type="text/css" href="{% static "css/contact.css" %}" />
   <link rel="stylesheet" type="text/css" href="{% static "css/nav.css" %}" />
 </head>
 
 <body>
-  <canvas id="stars" width="300" height="300"></canvas>
-  <!-- navbar -->
-  <nav class="nav">
+
+  <!--<canvas id="stars" width="300" height="300"></canvas>--
+  navbar -->
+  <nav class="nav" style="z-index:9999;">
     <div class="container" id="nav-cont">
       <div class="logo">
         <a href="../">
@@ -68,7 +70,7 @@
       </span>
     </div>
   </nav>
-  <div class="container-fluid">
+  <div class="container-fluid" style="z-index:999;position: absolute;">
     <div class="row" style="padding-top: 15vh;">
       <div id="lvl" class="plate info col-xs-6 col-sm-2 col-sm-offset-1">
         <div class="content">
@@ -127,9 +129,12 @@
       </div>
     </div>
   </div>
-
+<div id="input" >
+  </div>
   <script type="text/javascript" src="https://rawgit.com/ironwallaby/delaunay/master/delaunay.js"></script>
-  <script type="text/javascript" src="{% static "js/bg2.js" %}"></script>
+ <!--<script type="text/javascript" src="{% static "js/bg2.js" %}"></script>-->
+ <script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
+<script type="text/javascript" src="{% static "js/bg3.js" %}"></script>
   <script src="{% static "vendor/jquery/jquery-3.2.1.min.js" %}"></script>
   <script src="{% static "vendor/animsition/js/animsition.min.js" %}"></script>
   <script src="{% static "vendor/bootstrap/js/bootstrap.min.js" %}"></script>
